@@ -6,15 +6,26 @@ function resize(){
 	height = window.innerHeight;
 	canvas.width = width;
 	canvas.height = height;
+	ctx.font = "50px Arial";
+	ctx.fillStyle = 'white';
+	ctx.textAlign = 'center';
+	ctx.fillText("PRESS SPACE TO START",width/2,height/2)
 }
 resize();
 window.onresize = resize;
 var key = {ArrowUp:false,ArrowDown:false,ArrowLeft:false,ArrowRight:false," ":false,Escape:false};
 
+let started = false;
+
 document.on('keydown',e=>{
 	if(e.key in key){
 		key[e.key] = true;
 		e.preventDefault();
+	}
+	if(e.key == ' ' && !started){
+		started = true;
+		setup();
+		loop = setInterval(draw,1000/fps);
 	}
 });
 
@@ -116,6 +127,4 @@ function checkWin(){
 	}
 }
 
-
-setup();
-var loop = setInterval(draw,1000/fps);
+var loop; 
