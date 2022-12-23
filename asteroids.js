@@ -9,7 +9,9 @@ function resize(){
 	ctx.font = "50px Arial";
 	ctx.fillStyle = 'white';
 	ctx.textAlign = 'center';
-	ctx.fillText("PRESS SPACE TO START",width/2,height/2)
+	ctx.fillText("PRESS SPACE TO START",width/2,height/2-30)
+	ctx.fillText("PRESS F11 FOR FULLSCREEN",width/2,height/2+30)
+	ctx.fillText("CTRL + R TO RESTART",width/2,height/2+90)
 }
 resize();
 window.onresize = resize;
